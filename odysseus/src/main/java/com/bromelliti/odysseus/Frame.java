@@ -10,12 +10,12 @@ package com.bromelliti.odysseus;
  */
 public class Frame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Frame
-     */
+   Ugo giocatore;
+    
     public Frame() {
         initComponents();
         setVisibleAll(false);
+        giocatore = new Ugo(true, 100, 100, 100);
     }
     
     
