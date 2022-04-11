@@ -10,6 +10,14 @@ package com.bromelliti.odysseus;
  */
 public class Statistiche {
     
+    int HPMAX; //Health Points massimi
+    int SPMAX; //Stamina Points massimi
+    int MPMAX; //Magic Points massimi
+    int HP; //Health Points
+    int SP; //Stamina Points
+    int MP; //Magic Points
     
+    /*
+    */
     
 }
