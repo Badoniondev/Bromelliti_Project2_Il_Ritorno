@@ -25,22 +25,29 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="jLabelCHP" max="32767" attributes="0"/>
-                  <Component id="jLabelHP" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jButtonAttacca" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jLabelCHP" max="32767" attributes="0"/>
+                      <Component id="jLabelHP" alignment="0" pref="72" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="jButtonAttacca" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jLabelSP" max="32767" attributes="0"/>
-                  <Component id="JButtonCura" max="32767" attributes="0"/>
-                  <Component id="jLabelCSP" max="32767" attributes="0"/>
+                  <Component id="jButtonInizia" pref="85" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jLabelSP" pref="85" max="32767" attributes="0"/>
+                      <Component id="jLabelCSP" max="32767" attributes="0"/>
+                      <Component id="jButtonCura" alignment="1" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="136" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jButtonRicarica" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jLabelMP" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jLabelCMP" max="32767" attributes="0"/>
+              <EmptySpace pref="108" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jLabelMP" alignment="0" pref="73" max="32767" attributes="0"/>
+                      <Component id="jLabelCMP" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="jButtonRicarica" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -56,18 +63,22 @@
                   <Component id="jLabelSP" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelCSP" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
-                  <Component id="jLabelCMP" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabelCHP" alignment="1" min="-2" pref="15" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelCSP" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+                      <Component id="jLabelCMP" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="228" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButtonInizia" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="124" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonRicarica" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonCura" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonAttacca" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JButtonCura" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,19 +87,16 @@
     <Component class="javax.swing.JButton" name="jButtonRicarica">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ricarica"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonAttacca">
       <Properties>
         <Property name="text" type="java.lang.String" value="Attacca"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="JButtonCura">
+    <Component class="javax.swing.JButton" name="jButtonCura">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cura"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelMP">
@@ -144,6 +152,14 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonInizia">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Inizia"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Inizia"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
