@@ -6,15 +6,30 @@ package com.bromelliti.odysseus;
 
 /**
  *
- * @author alex1
+ * @author Neri
  */
 public class Frame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Frame
-     */
+   Ugo giocatore;
+    
     public Frame() {
         initComponents();
+        setVisibleAll(false);
+        giocatore = new Ugo(true, 100, 100, 100);
+    }
+    
+    
+    
+    private void setVisibleAll(boolean visible){ //Rende invisibile/visible i bottoni e i label
+        jButtonCura.setVisible(visible);
+        jButtonAttacca.setVisible(visible);
+        jButtonRicarica.setVisible(visible);
+        jLabelCHP.setVisible(visible);
+        jLabelCMP.setVisible(visible);
+        jLabelCSP.setVisible(visible);
+        jLabelHP.setVisible(visible);
+        jLabelSP.setVisible(visible);
+        jLabelMP.setVisible(visible);
     }
 
     /**
@@ -28,24 +43,22 @@ public class Frame extends javax.swing.JFrame {
 
         jButtonRicarica = new javax.swing.JButton();
         jButtonAttacca = new javax.swing.JButton();
-        JButtonCura = new javax.swing.JButton();
+        jButtonCura = new javax.swing.JButton();
         jLabelMP = new javax.swing.JLabel();
         jLabelHP = new javax.swing.JLabel();
         jLabelSP = new javax.swing.JLabel();
         jLabelCHP = new javax.swing.JLabel();
         jLabelCSP = new javax.swing.JLabel();
         jLabelCMP = new javax.swing.JLabel();
+        jButtonInizia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButtonRicarica.setText("Ricarica");
-        jButtonRicarica.setEnabled(false);
 
         jButtonAttacca.setText("Attacca");
-        jButtonAttacca.setEnabled(false);
 
-        JButtonCura.setText("Cura");
-        JButtonCura.setEnabled(false);
+        jButtonCura.setText("Cura");
 
         jLabelMP.setForeground(new java.awt.Color(51, 51, 255));
         jLabelMP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -69,26 +82,37 @@ public class Frame extends javax.swing.JFrame {
         jLabelCMP.setForeground(new java.awt.Color(51, 51, 255));
         jLabelCMP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        jButtonInizia.setText("Inizia");
+        jButtonInizia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inizia(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabelCHP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelHP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonAttacca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabelCHP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelHP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
+                    .addComponent(jButtonAttacca))
                 .addGap(138, 138, 138)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelSP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JButtonCura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelCSP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonRicarica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelMP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelCMP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonInizia, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabelSP, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                        .addComponent(jLabelCSP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonCura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabelMP, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                        .addComponent(jLabelCMP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonRicarica, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -100,20 +124,27 @@ public class Frame extends javax.swing.JFrame {
                     .addComponent(jLabelHP)
                     .addComponent(jLabelSP))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCSP, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCMP, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCHP, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelCHP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelCSP, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelCMP, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonInizia)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRicarica)
-                    .addComponent(jButtonAttacca)
-                    .addComponent(JButtonCura))
-                .addGap(187, 187, 187))
+                    .addComponent(jButtonCura)
+                    .addComponent(jButtonAttacca))
+                .addGap(48, 48, 48))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Inizia(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inizia
+        setVisibleAll(true);
+    }//GEN-LAST:event_Inizia
 
     /**
      * @param args the command line arguments
@@ -151,8 +182,9 @@ public class Frame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JButtonCura;
     private javax.swing.JButton jButtonAttacca;
+    private javax.swing.JButton jButtonCura;
+    private javax.swing.JButton jButtonInizia;
     private javax.swing.JButton jButtonRicarica;
     private javax.swing.JLabel jLabelCHP;
     private javax.swing.JLabel jLabelCMP;
