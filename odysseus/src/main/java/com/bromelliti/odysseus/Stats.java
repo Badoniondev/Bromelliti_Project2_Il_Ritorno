@@ -10,15 +10,16 @@ package com.bromelliti.odysseus;
  */
 public class Stats{
     //att
-    private int HPMAX; //Health Points massimi
-    private int SPMAX; //Stamina Points massimi
-    private int MPMAX; //Magic Points massimi
-    private int HP; //Health Points
-    private int SP; //Stamina Points
-    private int MP; //Magic Points
-    private int flatneg; //riduzione danno
-    private int XP; //punti esperienza
-    private int livello; //livello personaggio
+    protected int HPMAX; //Health Points massimi
+    protected int SPMAX; //Stamina Points massimi per ora non si usa
+    protected int MPMAX; //Magic Points massimi
+    protected int HP; //Health Points
+    protected int SP; //Stamina Points
+    protected int MP; //Magic Points
+    protected int flatneg; //riduzione danno
+    protected int XP; //punti esperienza
+    protected int livello; //livello personaggio
+    //tba speed da usare con stamina
     
     //costrut
     public Stats(){
