@@ -10,6 +10,13 @@ package com.bromelliti.odysseus;
  */
 public class Statistiche {
     
+    int HPMAX;
+    int SPMAX;
+    int MPMAX;
+    int HP;
+    int SP;
+    int MP;
+    
     
     
 }
