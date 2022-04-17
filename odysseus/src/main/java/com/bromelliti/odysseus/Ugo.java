@@ -17,7 +17,7 @@ public class Ugo extends Stats {
     private Vector Inventario; //Per ora non usato
     private Random rng;
     private int HA, MU, MG, AA, MS; //Heal Amount, Magic Used, Magic Gained, Attack Amount, Magic Stolen
-    private short azionenemico; /*
+    private int azionenemico; /*
     1 - attacca
     2 - cura
     3 - ruba magia
@@ -48,14 +48,14 @@ public class Ugo extends Stats {
             boolean azione=false;
             int bob; //grande amico
         // bob=rng.nextInt(3)+1;
-            if(HP<=HP/10 && azione==false){//se opportuno curarsi
+            if(HP<=HPMAX/10 && azione==false){//se opportuno curarsi
             
                 if(MP<5){//se necessario steal per curarsi
-                    steal();
                     azionenemico = 3;
+                    steal();
                 }else{
-                    heal();
                     azionenemico = 2;
+                    heal();
                 }
              
                 azione=true;
@@ -66,16 +66,18 @@ public class Ugo extends Stats {
         azione=true;
         
         }*/
-        if(azione==false){}
-            attack();//attacca
+        if(azione==false){
             azionenemico = 1;
+            attack();//attacca
+        }
         }
     
     }
-             public void heal(){  //ti cura e toglie magia
+        
+            public void heal(){  //ti cura e toglie magia
                 HA=rng.nextInt(10)+1;
                 HP+=HA;
-                MU=rng.nextInt(4)+1;
+                MU=rng.nextInt(10)+1;
                 MP-=MU;
                 
             }
