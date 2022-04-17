@@ -14,8 +14,8 @@ public class Item {
     private int reqdex,reqstrength; //prereq per alcuni equipaggiamenti
     private int mindamage,maxdamage; //intervalli per gen danno
     private int speed;
-   private  int flatneg; //negazione danno armatura
-   private  int  peso; 
+    private  int flatneg; //negazione danno armatura
+    private  int  peso; 
     //costrutt
     public Item(int tipo){
     this.tipo=tipo;

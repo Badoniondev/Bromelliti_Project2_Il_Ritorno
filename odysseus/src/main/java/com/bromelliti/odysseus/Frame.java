@@ -343,6 +343,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCura;
     private javax.swing.JButton jButtonInizia;
     private javax.swing.JButton jButtonRicarica;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCHP;
     private javax.swing.JLabel jLabelCMP;
     private javax.swing.JLabel jLabelCSP;
