@@ -16,6 +16,12 @@ public class Ugo extends Stats {
     boolean player; //true player | false nemico
     private Vector Inventario; //Per ora non usato
     private Random rng;
+    private int HA, MU, MG, AA, MS; //Heal Amount, Magic Used, Magic Gained, Attack Amount, Magic Stolen
+    private short azionenemico; /*
+    1 - attacca
+    2 - cura
+    3 - ruba magia
+    */
     
     //costrut
     
@@ -24,31 +30,36 @@ public class Ugo extends Stats {
         this.HPMAX=HPMAX;
         this.MPMAX=MPMAX;
         this.SPMAX=SPMAX;
-                    }
+        HP=HPMAX;
+        SP=SPMAX;
+        MP=MPMAX;
+        rng= new Random();
+    }
     //metodi
      public void check(){
-          if(HP<=0)
-        HP=0;   //morto  
-     if(SP<=0)
-       SP=0;
-     if(MP<=0)
-          MP=0;
+        if(HP<=0)
+            HP=0;   //morto  
+        if(SP<=0)
+            SP=0;
+        if(MP<=0)
+            MP=0;
      //controlla se è player o meno
-      if(player==false){
-         boolean azione=false;
-         int bob;
+        if(player==false){
+            boolean azione=false;
+            int bob; //grande amico
         // bob=rng.nextInt(3)+1;
-         if(HP<=HP/10 && azione==false){//se opportuno curarsi
+            if(HP<=HP/10 && azione==false){//se opportuno curarsi
             
-             if(MP<5){//se necessario steal per curarsi
-             steal();
-            }
-          else{
-         heal();
-             }
+                if(MP<5){//se necessario steal per curarsi
+                    steal();
+                    azionenemico = 3;
+                }else{
+                    heal();
+                    azionenemico = 2;
+                }
              
-         azione=true;
-              }
+                azione=true;
+            }
       
         /*if(MP<=MP/10 && azione==false){ // non necessario
         steal();
@@ -57,33 +68,34 @@ public class Ugo extends Stats {
         }*/
         if(azione==false){}
             attack();//attacca
-     }
+            azionenemico = 1;
+        }
     
     }
              public void heal(){  //ti cura e toglie magia
-        
-               HP+=rng.nextInt(10)+1; 
-            MP-=rng.nextInt(4)+1;
-        
+                HA=rng.nextInt(10)+1;
+                HP+=HA;
+                MU=rng.nextInt(4)+1;
+                MP-=MU;
+                
             }
-             public void recharge(){
+            public void recharge(){
+                
+                MG=rng.nextInt(5)+1;
+                MP+=MG; //riprende magia
              
-             MP+=rng.nextInt(5)+1; //riprende magia
+            }
              
-             }
+            public int attack(){ //ritorna valore per attacco
+                AA=rng.nextInt(10)+1;
+                return AA; //da togliere a HP avversario
+            }
              
-             public int attack(){ //ritorna valore per attacco
-             int attacco=0;
-             attacco=rng.nextInt(10)+1;
-             return attacco; //da togliere a HP avversario
-             }
-             
-             public int steal(){//ruba magia al player 
-             int ruba;
-             ruba=rng.nextInt(4)+1; 
-             MP+=ruba;
-             return ruba; //valore di ritorno da togliere a MP player
-             }
+            public int steal(){//ruba magia al player 
+                MS=rng.nextInt(4)+1; 
+                MP+=MS;
+                return MS; //valore di ritorno da togliere a MP player
+            }
   /* public void morte(){
        if(HP<=0)
         HP=0;   //morto  
@@ -98,5 +110,29 @@ public class Ugo extends Stats {
    }*/
     public Vector getInventario() {
         return Inventario;
+    }
+    
+    public int getAzionenemico() {
+        return azionenemico;
+    }
+
+    public int getHA() {
+        return HA;
+    }
+
+    public int getMU() {
+        return MU;
+    }
+    
+    public int getMG() {
+        return MG;
+    }
+    
+    public int getAA() {
+        return AA;
+    }
+    
+    public int getMS() {
+        return MS;
     }
 }
