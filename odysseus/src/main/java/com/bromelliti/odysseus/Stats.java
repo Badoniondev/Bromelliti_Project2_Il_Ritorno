@@ -67,6 +67,10 @@ public class Stats{
     public int getLivello() {
         return livello;
     }
-    
+    public void setFlatneg(int flatneg) {
+        this.flatneg=flatneg;
+        
+        
+    }
     
 }
