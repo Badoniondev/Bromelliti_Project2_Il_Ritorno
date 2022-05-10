@@ -11,29 +11,34 @@ package com.bromelliti.odysseus;
 public class Item {
     //att
     private int tipo; //0 item | 1 arma | 2 armatura
-    private int reqdex,reqstrength; //prereq per alcuni equipaggiamenti
-    private int mindamage,maxdamage; //intervalli per gen danno
-    private int speed;
-    private  int flatneg; //negazione danno armatura
-    private  int  peso; 
+    private int reqdex,reqstrength; //prereq per alcuni equipaggiamenti più tardi
+    //private int mindamage,maxdamage; //intervalli per gen danno||no.
+    private int danno=0;
+    //private int speed; più tardi
+    private  int flatneg=0; //negazione danno armatura
+   // private  int  peso; più tardi
+    //private int debolezza; più tardi
+    
     //costrutt
-    public Item(int tipo){
+    public Item(int tipo,int n){
     this.tipo=tipo;
-             switch(tipo){ //indetifica il tipo 
+  
+             switch(tipo){ //indetifica il tipo  //0 item | 1 arma | 2 armatura
     
              case 0 -> { 
               reqdex=0;
               reqstrength=0;
               flatneg=0;
+              danno=0;
               }
-             case 1 -> flatneg=0;
-             case 2 -> {mindamage=0;
-             maxdamage=0;
+             case 1 -> danno=n;
+             case 2 -> {flatneg=n;
+             
              }
     
               }
     
-  }
+    }
     //metodi:
 
     public int getTipo() {
@@ -48,25 +53,21 @@ public class Item {
         return reqstrength;
     }
 
-    public int getMindamage() {
-        return mindamage;
+    public int getDanno() {
+        return danno;
     }
 
-    public int getMaxdamage() {
-        return maxdamage;
-    }
-
-    public int getSpeed() {
+   /* public int getSpeed() {
         return speed;
-    }
+    }*/
 
     public int getFlatneg() {
         return flatneg;
     }
 
-    public int getPeso() {
+    /*public int getPeso() {
         return peso;
-    }
+    }*/
 
     public void setTipo(int tipo) {
         this.tipo = tipo;
@@ -80,24 +81,27 @@ public class Item {
         this.reqstrength = reqstrength;
     }
 
-    public void setMindamage(int mindamage) {
+   /* public void setMindamage(int mindamage) {
         this.mindamage = mindamage;
     }
 
     public void setMaxdamage(int maxdamage) {
         this.maxdamage = maxdamage;
-    }
+    }*/
 
-    public void setSpeed(int speed) {
+  /*  public void setSpeed(int speed) {
         this.speed = speed;
     }
-
+*/
     public void setFlatneg(int flatneg) {
         this.flatneg = flatneg;
     }
+public void setDanno(int danno){
+this.danno=danno;
 
-    public void setPeso(int peso) {
+}
+  /*  public void setPeso(int peso) {
         this.peso = peso;
-    }
+    }*/
     
 }
