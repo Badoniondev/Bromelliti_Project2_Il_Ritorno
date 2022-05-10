@@ -37,13 +37,6 @@ public class Ugo extends Stats {
     }
     //metodi
      public void check(){
-        if(HP<=0)
-            HP=0;   //morto  
-        if(SP<=0)
-            SP=0;
-        if(MP<=0)
-            MP=0;
-     //controlla se è player o meno
         if(player==false){
             boolean azione=false;
             int bob; //grande amico
@@ -66,10 +59,11 @@ public class Ugo extends Stats {
         azione=true;
         
         }*/
-        if(azione==false){
+        /*if(azione==false){
             azionenemico = 1;
-            attack();//attacca
-        }
+            
+            attack();//attacca problema non mio
+        }*/
         }
     
     }
@@ -88,9 +82,9 @@ public class Ugo extends Stats {
              
             }
              
-            public int attack(){ //ritorna valore per attacco
-                AA=rng.nextInt(10)+1;
-                return AA; //da togliere a HP avversario
+            public int attack(int damage){ //ritorna valore per attacco
+                AA=rng.nextInt(10)+1+damage;
+                return AA; //da togliere a HP avversario ||flaqtneg fatto su frame
             }
              
             public int steal(){//ruba magia al player 
