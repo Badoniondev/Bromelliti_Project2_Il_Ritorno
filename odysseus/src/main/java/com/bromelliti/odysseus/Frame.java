@@ -18,8 +18,8 @@ public class Frame extends javax.swing.JFrame {
     public Frame() {
         initComponents();
         setVisibleAll(false);
-        giocatore = new Ugo(true, 100, 100, 100);
-        nemico = new Ugo(false, 100, 100, 100);
+        giocatore = new Ugo(true, 100, 100, 100,"Sannio");
+        nemico = new Ugo(false, 100, 100, 100,"placeholder");
         jLabelSP.setVisible(false);
     }
     
@@ -150,10 +150,9 @@ public class Frame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabelCHP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabelHP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonAttacca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelEHP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabelHP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonAttacca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelEHP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(138, 138, 138)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -183,8 +182,8 @@ public class Frame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelESP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelEHP, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelEHP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabelEMP, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30)
                 .addComponent(jButtonInizia)
@@ -267,7 +266,7 @@ public class Frame extends javax.swing.JFrame {
     }//GEN-LAST:event_Inizia
 
     private void jButtonAttaccaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAttaccaActionPerformed
-        n = giocatore.attack();
+        n = giocatore.attack(0);
         nemico.HP-=n;
         jLabelEHP.setText(Integer.toString(nemico.HP));
         jLabelEvent2.setText("Attacchi Bob per " + n + " danno!");
@@ -343,7 +342,6 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCura;
     private javax.swing.JButton jButtonInizia;
     private javax.swing.JButton jButtonRicarica;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCHP;
     private javax.swing.JLabel jLabelCMP;
     private javax.swing.JLabel jLabelCSP;

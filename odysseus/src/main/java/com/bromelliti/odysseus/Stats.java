@@ -69,8 +69,6 @@ public class Stats{
     }
     public void setFlatneg(int flatneg) {
         this.flatneg=flatneg;
-        
-        
     }
     
 }
