@@ -21,6 +21,7 @@ public class Ugo extends Stats {
     private int azionenemico;/* 1=attacca |2=cura | 3=ruba magia */
     private Item arma;
     private Item armatura;
+    private int pozioni=0;
     //costrut sotto
     
     public String getNome(){ //ritorna nome nemico | costrutto momento
@@ -72,11 +73,11 @@ public class Ugo extends Stats {
     }
         
             public void heal(){  //ti cura e toglie magia
+                if(pozioni>0){
                 HA=rng.nextInt(10)+1;
                 HP+=HA;
-                MU=rng.nextInt(10)+1;
-                MP-=MU;
-                
+                pozioni-=1;
+                }
             }
             public void recharge(){
                 
@@ -140,6 +141,10 @@ public class Ugo extends Stats {
     public int getAA() {
         return AA;
     }
+    
+    public int getPozioni(){
+      return pozioni;
+      }
     
     public int getMS() {
         return MS;

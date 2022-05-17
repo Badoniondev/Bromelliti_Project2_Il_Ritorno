@@ -4,6 +4,8 @@
  */
 package com.bromelliti.odysseus;
 
+import java.util.HashSet;
+
 /**
  *
  * @author Neri
@@ -14,12 +16,14 @@ public class Frame extends javax.swing.JFrame {
    Ugo nemico;
    int n, n1;
    short MORTE=0; // -1 se nemico morto, 0 se nessuno, 1 se giocatore
+   AlphaCore omega;
     
     public Frame() {
         initComponents();
         setVisibleAll(false);
         giocatore = new Ugo(true, 100, 100, 100,"Sannio");
         nemico = new Ugo(false, 100, 100, 100,"placeholder");
+        
         jLabelSP.setVisible(false);
     }
     
@@ -227,7 +231,10 @@ public class Frame extends javax.swing.JFrame {
             Atrocisofferenze(MORTE);
         }
         if (MORTE==0) {
+            
             nemico.check();
+            giocatore.setSP(giocatore.getSP()+10);
+            
             switch (nemico.getAzionenemico()) {
                 case 1: //Nemico attacca
                     giocatore.HP -= nemico.getAA();

@@ -70,5 +70,7 @@ public class Stats{
     public void setFlatneg(int flatneg) {
         this.flatneg=flatneg;
     }
-    
+    public void setSP(int SP){
+    this.SP=SP;
+    }
 }
