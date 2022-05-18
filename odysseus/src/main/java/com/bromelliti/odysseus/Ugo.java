@@ -14,9 +14,9 @@ import java.util.Vector;
 public class Ugo extends Stats {
     //att
     boolean player; //true player | false nemico
-    private String nome;
+    private final String nome;
     private Vector Inventario; //Per ora non usato
-    private Random rng;
+    private final Random rng;
     private int HA, MU, MG, AA, MS; //Heal Amount, Magic Used, Magic Gained, Attack Amount, Magic Stolen
     private int azionenemico;/* 1=attacca |2=cura | 3=ruba magia */
     private Item arma;
@@ -27,7 +27,7 @@ public class Ugo extends Stats {
     public String getNome(){ //ritorna nome nemico | costrutto momento
     return nome;
     }
-    public Ugo(boolean player, int HPMAX, int SPMAX, int MPMAX,String nome){
+    public Ugo(boolean player, int HPMAX, int SPMAX, int MPMAX, int pozioni,String nome){
         this.player=player;
         this.HPMAX=HPMAX;
         this.MPMAX=MPMAX;
@@ -36,6 +36,7 @@ public class Ugo extends Stats {
         HP=HPMAX;
         SP=SPMAX;
         MP=MPMAX;
+        this.pozioni=pozioni;
         rng= new Random();
     }
     

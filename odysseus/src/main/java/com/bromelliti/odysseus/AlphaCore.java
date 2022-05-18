@@ -5,25 +5,34 @@
  */
 package com.bromelliti.odysseus;
 
+import java.util.Random;
+
 /**
  *
- * @author 4D
+ * @author Neri
  */
 public class AlphaCore {
-    
-    short azione;
+    // Il gioco si gioca da solo. Si gioca bene? Decisamente no, ma se non hai voglia di fare proprio niente...
+    byte azione;
+    Random rng;
     
     AlphaCore(){
-        
+        rng = new Random();
     }
     
-    short TurnoIA(Ugo giocatore, Ugo nemico){
+    byte TurnoIA(Ugo giocatore, Ugo nemico){
         
-        if (giocatore.HP<(giocatore.HP*25/100)&&(giocatore.getPozioni()>0)){
-            azione = 3;
-        } else if() // scivata e attacco e altra robna -bob
+        azione = 0;
         
+        if (giocatore.HP<(giocatore.HP*25/100)&&(giocatore.getPozioni()>0)){ // Se sotto il 25% di HP e ha pozioni
+            azione = 2;//cura
+        } else {
+            if((rng.nextInt(10)+1)>3){ //30% di schivare invece di attaccare
+               azione = 1; //attacca
+            } else {
+                azione = 4;//schiva
+            }
+        }
         return azione;
     }
-    
 }
