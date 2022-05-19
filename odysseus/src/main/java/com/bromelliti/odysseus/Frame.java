@@ -8,8 +8,9 @@ package com.bromelliti.odysseus;
  *
  * @author Neri
  */
-public class Frame extends javax.swing.JFrame implements Runnable{
+public class Frame extends javax.swing.JFrame {
 
+   
    Ugo giocatore;
    Ugo nemico;
    int n, n1;
@@ -63,7 +64,6 @@ public class Frame extends javax.swing.JFrame implements Runnable{
         jLabelEvent2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(500, 300));
         setMinimumSize(new java.awt.Dimension(500, 300));
         setResizable(false);
 
@@ -352,8 +352,5 @@ public class Frame extends javax.swing.JFrame implements Runnable{
     private javax.swing.JLabel jLabelSP;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void run() {
-        
-    }
+   
 }

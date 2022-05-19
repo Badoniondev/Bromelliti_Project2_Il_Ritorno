@@ -1,50 +1,26 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.bromelliti.odysseus;
 
 /**
  *
- * @author Neri
+ * @author 4D
  */
-public class Main implements Runnable{
-    
-    byte startmode;
-    static Main main;
-    Menu menu;
-    static Thread thr;
-
-    public Main() {
-        startmode = 0;
-    }
-    
+public class Main {
     
     public static void main(String args[]){
-        main = new Main();
-        thr = new Thread(main);
-        thr.start();
-        while (thr.isAlive()==true){
-            //Aspetta e non rompere
-        }
-        
+    
+    Menu abo = new Menu();
+    while(abo.getStartmode()==0){
+        //NON ROMPERE LE PALLE e aspetta pls
     }
-
-    @Override
-    public void run() {
-        Menu menu = new Menu();
-        while(menu.getStartmode()==0){
-            switch (menu.getStartmode()){
-                case 1:
-                    startmode = 1;
-                    thr.stop();
-                    
-                case 2:
-                    startmode = 2;
-                    thr.stop();
-            }
-        }
+  
+    switch (abo.getStartmode()){
+        case 1:
     }
     
+    }
 }
-
